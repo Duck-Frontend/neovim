@@ -10,3 +10,9 @@ set noerrorbells
 set novisualbell
 set mouse= 
 set encoding=utf8
+
+call plug#begin()
+
+Plug 'bling/vim-airline'
+
+call plug#end()
