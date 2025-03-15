@@ -4,14 +4,17 @@ local mason_lspconfig = require('mason-lspconfig')
 
 -- Настройка Mason
 mason.setup()
+
+-- Настройка Mason-lspconfig
 mason_lspconfig.setup({
-  ensure_installed = { 'lua_ls', 'pyright', 'tsserver' }, -- Пример LSP серверов
+  ensure_installed = { 'lua_ls', 'pyright'},
 })
 
--- Настройка LSP серверов
-local on_attach = function(client, bufnr)
-  -- Клавиши для LSP
+-- Функция on_attach
+local on_attach = function(bufnr)
   local opts = { noremap = true, silent = true, buffer = bufnr }
+
+  -- Клавиши для LSP
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
@@ -21,10 +24,12 @@ local on_attach = function(client, bufnr)
   vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
   vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-  vim.keymap.set('n', '<leader>f', vim.lsp.buf.formatting, opts)
+  vim.keymap.set('n', '<leader>f', function()
+    vim.lsp.buf.format({ async = true })
+  end, opts)
 end
 
--- Настройка для каждого LSP сервера
+-- Настройка LSP серверов
 mason_lspconfig.setup_handlers({
   function(server_name)
     lspconfig[server_name].setup({
