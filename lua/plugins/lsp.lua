@@ -10,11 +10,16 @@ mason_lspconfig.setup({
   ensure_installed = { 'lua_ls', 'pyright'},
 })
 
--- Функция on_attach
-local on_attach = function(bufnr)
+local on_attach = function(client, bufnr)
+  -- Проверка, что bufnr является числом
+  if not bufnr or type(bufnr) ~= 'number' then
+    vim.notify("Invalid buffer number in on_attach", vim.log.levels.ERROR)
+    return
+  end
+
+  -- Настройка клавиш для LSP
   local opts = { noremap = true, silent = true, buffer = bufnr }
 
-  -- Клавиши для LSP
   vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
   vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
   vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
