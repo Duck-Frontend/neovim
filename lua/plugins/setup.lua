@@ -15,7 +15,7 @@ return require('packer').startup(function(use)
   use 'nvim-treesitter/nvim-treesitter-textobjects'
   use 'nvim-treesitter/playground'
   use { "catppuccin/nvim", as = "catppuccin" }
-
+  
   -- Плагины для автодополнения
   use 'hrsh7th/nvim-cmp' -- Менеджер автодополнения
   use 'hrsh7th/cmp-buffer' -- Источник для автодополнения из текущего буфера
@@ -29,6 +29,18 @@ return require('packer').startup(function(use)
   use 'neovim/nvim-lspconfig' -- Конфигурация LSP
   use 'williamboman/mason.nvim' -- Установщик LSP серверов
   use 'williamboman/mason-lspconfig.nvim' -- Интеграция Mason с LSP
+
+  use 'vim-airline/vim-airline'          -- Плагин airline
+  use 'vim-airline/vim-airline-themes'   -- Темы для airline
+  
+   -- Плагин для терминала
+  use {
+    'akinsho/toggleterm.nvim',
+    tag = '*',
+    config = function()
+      require('plugins.toggleterm')
+    end
+  }
 
   if packer_bootstrap then
     require('packer').sync()

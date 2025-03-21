@@ -12,3 +12,4 @@ require('colorscheme')
 -- Подключение автодополнения и LSP
 require('plugins.cmp')
 require('plugins.lsp')
+require('plugins.airline')
