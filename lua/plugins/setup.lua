@@ -42,6 +42,14 @@ return require('packer').startup(function(use)
     end
   }
 
+  use {
+    "preservim/nerdtree",
+    config = function()
+        vim.g.NERDTreeShowHidden = 1  -- Показывать скрытые файлы
+        vim.g.NERDTreeQuitOnOpen = 1  -- Закрывать NERDTree после открытия файла
+    end
+}
+
   if packer_bootstrap then
     require('packer').sync()
   end

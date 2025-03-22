@@ -18,3 +18,4 @@ vim.opt.scrolloff = 8
 vim.opt.signcolumn = "yes"
 
 vim.opt.updatetime = 50
+vim.g.mapleader = " "

@@ -1,17 +1,47 @@
-local on_attach = function(client, bufnr)
-  local opts = { noremap = true, silent = true, buffer = bufnr }
+-- Пример: Настройка комбинаций
+local keymap = vim.keymap.set
 
-  -- Клавиши для LSP
-  vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, opts)
-  vim.keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
-  vim.keymap.set('n', 'K', vim.lsp.buf.hover, opts)
-  vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, opts)
-  vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
-  vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
-  vim.keymap.set('n', '<leader>rn', vim.lsp.buf.rename, opts)
-  vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
-  vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
-  vim.keymap.set('n', '<leader>f', function()
-    vim.lsp.buf.format({ async = true })
-  end, opts)
-end
+-- Открыть/закрыть NERDTree
+keymap("n", "<leader>n", ":NERDTreeToggle<CR>", { desc = "Открыть/закрыть NERDTree" })
+keymap("n", "<leader>nv", ":NERDTreeFind<CR>:vertical wincmd H<CR>", { desc = "Открыть NERDTree и файл в вертикальном окне" })
+keymap("n", "<leader>nh", ":NERDTreeFind<CR>:wincmd J<CR>", { desc = "Открыть NERDTree и файл в горизонтальном окне" })
+
+-- Нормальный режим (Normal mode)
+keymap("n", "<leader>w", ":w<CR>", { desc = "Сохранить файл" }) -- Сохранить файл
+keymap("n", "<leader>q", ":q<CR>", { desc = "Закрыть Neovim" }) -- Закрыть Neovim
+keymap("n", "<C-s>", ":w<CR>", { desc = "Сохранить файл (Ctrl+S)" }) -- Сохранить файл (Ctrl+S)
+
+-- Визуальный режим (Visual mode)
+keymap("v", "<leader>y", '"+y', { desc = "Копировать в системный буфер" }) -- Копировать в системный буфер
+
+-- Вставка из системного буфера
+keymap("n", "<leader>p", '"+p', { desc = "Вставить из системного буфера" })
+
+-- Перемещение между окнами
+keymap("n", "<C-h>", "<C-w>h", { desc = "Перейти в левое окно" })
+keymap("n", "<C-j>", "<C-w>j", { desc = "Перейти в нижнее окно" })
+keymap("n", "<C-k>", "<C-w>k", { desc = "Перейти в верхнее окно" })
+keymap("n", "<C-l>", "<C-w>l", { desc = "Перейти в правое окно" })
+
+-- Перемещение окон
+keymap("n", "<leader>wh", "<C-w>H", { desc = "Переместить окно влево" })  -- Влево
+keymap("n", "<leader>wj", "<C-w>J", { desc = "Переместить окно вниз" })   -- Вниз
+keymap("n", "<leader>wk", "<C-w>K", { desc = "Переместить окно вверх" })  -- Вверх
+keymap("n", "<leader>wl", "<C-w>L", { desc = "Переместить окно вправо" }) -- Вправо
+
+-- Поворот окон (поменять местами)
+keymap("n", "<leader>wr", "<C-w>r", { desc = "Повернуть окна" })
+
+-- Выровнять размеры окон
+keymap("n", "<leader>w=", "<C-w>=", { desc = "Выровнять размеры окон" })
+
+-- Увеличение/уменьшение высоты окна
+keymap("n", "<A-Up>", "<C-w>+", { desc = "Увеличить высоту окна" })  -- Увеличить высоту
+keymap("n", "<A-Down>", "<C-w>-", { desc = "Уменьшить высоту окна" })  -- Уменьшить высоту
+
+-- Увеличение/уменьшение ширины окна
+keymap("n", "<A-Right>", "<C-w>>", { desc = "Увеличить ширину окна" })  -- Увеличить ширину
+keymap("n", "<A-Left>", "<C-w><", { desc = "Уменьшить ширину окна" })  -- Уменьшить ширину
+
+-- Выровнять размеры окон
+keymap("n", "<A-=>", "<C-w>=", { desc = "Выровнять размеры окон" })  -- Выровнять размеры
