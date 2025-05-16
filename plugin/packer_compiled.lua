@@ -119,6 +119,17 @@ _G.packer_plugins = {
     path = "/Users/antonstadolnik/.local/share/nvim/site/pack/packer/start/mason.nvim",
     url = "https://github.com/williamboman/mason.nvim"
   },
+  nerdtree = {
+    config = { "\27LJ\2\nW\0\0\2\0\4\0\t6\0\0\0009\0\1\0)\1\1\0=\1\2\0006\0\0\0009\0\1\0)\1\1\0=\1\3\0K\0\1\0\23NERDTreeQuitOnOpen\23NERDTreeShowHidden\6g\bvim\0" },
+    loaded = true,
+    path = "/Users/antonstadolnik/.local/share/nvim/site/pack/packer/start/nerdtree",
+    url = "https://github.com/preservim/nerdtree"
+  },
+  ["nord.nvim"] = {
+    loaded = true,
+    path = "/Users/antonstadolnik/.local/share/nvim/site/pack/packer/start/nord.nvim",
+    url = "https://github.com/shaunsingh/nord.nvim"
+  },
   ["nvim-cmp"] = {
     loaded = true,
     path = "/Users/antonstadolnik/.local/share/nvim/site/pack/packer/start/nvim-cmp",
@@ -187,6 +198,10 @@ time([[Defining packer_plugins]], false)
 time([[Config for toggleterm.nvim]], true)
 try_loadstring("\27LJ\2\n2\0\0\3\0\2\0\0046\0\0\0'\2\1\0B\0\2\1K\0\1\0\23plugins.toggleterm\frequire\0", "config", "toggleterm.nvim")
 time([[Config for toggleterm.nvim]], false)
+-- Config for: nerdtree
+time([[Config for nerdtree]], true)
+try_loadstring("\27LJ\2\nW\0\0\2\0\4\0\t6\0\0\0009\0\1\0)\1\1\0=\1\2\0006\0\0\0009\0\1\0)\1\1\0=\1\3\0K\0\1\0\23NERDTreeQuitOnOpen\23NERDTreeShowHidden\6g\bvim\0", "config", "nerdtree")
+time([[Config for nerdtree]], false)
 
 _G._packer.inside_compile = false
 if _G._packer.needs_bufread == true then

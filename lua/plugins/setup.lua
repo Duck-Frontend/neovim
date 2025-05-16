@@ -15,7 +15,7 @@ return require('packer').startup(function(use)
   use 'nvim-treesitter/nvim-treesitter-textobjects'
   use 'nvim-treesitter/playground'
   use { "catppuccin/nvim", as = "catppuccin" }
-  
+  use 'shaunsingh/nord.nvim'
   -- Плагины для автодополнения
   use 'hrsh7th/nvim-cmp' -- Менеджер автодополнения
   use 'hrsh7th/cmp-buffer' -- Источник для автодополнения из текущего буфера
@@ -32,7 +32,7 @@ return require('packer').startup(function(use)
 
   use 'vim-airline/vim-airline'          -- Плагин airline
   use 'vim-airline/vim-airline-themes'   -- Темы для airline
-  
+
    -- Плагин для терминала
   use {
     'akinsho/toggleterm.nvim',
@@ -49,6 +49,17 @@ return require('packer').startup(function(use)
         vim.g.NERDTreeQuitOnOpen = 1  -- Закрывать NERDTree после открытия файла
     end
 }
+
+use {
+    'shaunsingh/nord.nvim',
+    config = function()
+      vim.g.nord_contrast = true       -- улучшенный контраст
+      vim.g.nord_borders = true        -- границы для разделителей
+      vim.g.nord_disable_background = true -- отключаем фон для прозрачности
+      vim.g.nord_italic = false
+      vim.cmd('colorscheme nord')       -- применяем тему
+    end
+  }
 
   if packer_bootstrap then
     require('packer').sync()

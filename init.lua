@@ -2,7 +2,7 @@
 require('core.options')
 require('core.keymaps')
 require('core.autocmds')
-
+require('core.colors')
 -- Подключение настроек плагинов
 require('plugins.init')
 require('plugins.treesitter')

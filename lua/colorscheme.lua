@@ -1,10 +1,7 @@
-require('catppuccin').setup({
-  flavour = 'mocha', -- latte, frappe, macchiato, mocha
-  transparent_background = true, -- Прозрачность
-  styles = {
-    comments = { 'italic' }, -- Стиль комментариев
-    functions = { 'bold' }, -- Стиль функций
-    keywords = { 'italic' }, -- Стиль ключевых слов
-  },
-})
-vim.cmd('colorscheme catppuccin')
+vim.cmd.colorscheme('nord')
+vim.g.nord_contrast = true       -- улучшенный контраст
+vim.g.nord_borders = true        -- границы для разделителей
+vim.g.nord_disable_background = true  -- отключаем фон для прозрачности
+vim.g.nord_italic = false
+vim.cmd('colorscheme nord')
+
