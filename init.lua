@@ -7,7 +7,7 @@ require('core.colors')
 require('plugins.init')
 require('plugins.treesitter')
 -- Подключение цветовой схемы
-require('colorscheme')
+require('colorscheme').setup()
 
 -- Подключение автодополнения и LSP
 require('plugins.cmp')

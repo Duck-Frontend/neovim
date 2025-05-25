@@ -60,6 +60,13 @@ use {
       vim.cmd('colorscheme nord')       -- применяем тему
     end
   }
+use({
+  "rose-pine/neovim",
+  as = "rose-pine",
+  config = function()
+    vim.cmd("colorscheme rose-pine")
+  end
+})
 
   if packer_bootstrap then
     require('packer').sync()
